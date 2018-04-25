@@ -1,0 +1,36 @@
+@import 'settings';
+@import 'foundation-emails';
+
+@import 'template/template';
+
+.hide-for-large-custom, div.hide-for-large-custom {
+    display: none;
+    mso-hide: all; // hide selected elements in Outlook 2007-2013
+    overflow: hidden;
+    max-height: 0;
+    font-size: 0;
+    width: 0;
+    line-height: 0;
+}
+
+@media only screen and (max-width: #{$global-breakpoint}) {
+    .hide-for-large-custom, div.hide-for-large-custom {
+        display: block !important;
+        width: auto !important;
+        overflow: visible !important;
+        max-height: none !important;
+        font-size: inherit !important;
+        line-height: inherit !important;
+    }
+}
+
+table.body table.container div.hide-for-large-custom *, table.body table.container .hide-for-large-custom * {
+    mso-hide: all; // hide selected elements in Outlook 2007-2013
+}
+
+@media only screen and (max-width: #{$global-breakpoint}) {
+    table.body table.container div.hide-for-large-custom, table.body table.container .hide-for-large-custom {
+        display: table !important;
+        width: 100% !important;
+    }
+}
